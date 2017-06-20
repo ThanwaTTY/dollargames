@@ -11,6 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route::resource('/', 'DollargameController');
+
+
+Route::get('login', 'AuthController@getLogin')->name('login');
+Route::get('register', 'AuthController@register');
+Route::post('register', 'AuthController@store');
+Route::post('login', 'AuthController@postLogin');
+Route::get('/logout', 'AuthController@logout');
