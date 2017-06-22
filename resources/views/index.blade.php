@@ -10,12 +10,12 @@
         <th>Action</th>
         <th>Delete</th>
     </tr>
-{{-- @foreach($employees as $e)
+@foreach($users as $e)
     <tr>
         <td><a href="/employees/{{$e->id}}">{{ $e->id }}</a></td>
-        <td>{{ $e->first_name }}</td>
-        <td>{{ $e->last_name }}</td>
-        <td>{{ $e->gender }}</td>
+        <td>{{ $e->username }}</td>
+        <td>{{ $e->password }}</td>
+        <td>{{ $e->name }}</td>
         <td><a href="/employees/{{ $e->id }}/edit" class="btn btn-success">Edit</a></td>
         <td>
             <form action="/employees/{{ $e->id }}" method="POST">
@@ -25,9 +25,9 @@
             </form>
         </td>
     </tr>
- @endforeach --}}
+ @endforeach
 </table>
 
-{{-- {{ $employees->appends(['gender'=>request('gender')])->links() }} --}}
+{{ $users->appends(['gender'=>request('gender')])->links() }}
 
 @endsection
