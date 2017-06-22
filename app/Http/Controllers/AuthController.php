@@ -40,8 +40,11 @@ class AuthController extends Controller
              'name' => $name,
              'status' => $status
          ]);
-        return view('index');
-        //return $password;
+            $users = DB::table('users')
+            //->get();
+            ->paginate(5);
+         return view('index', compact('users'));
+        //return 'STORE';
 
     }
 
