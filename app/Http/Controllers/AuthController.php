@@ -43,7 +43,8 @@ class AuthController extends Controller
             $users = DB::table('users')
             //->get();
             ->paginate(5);
-         return view('index', compact('users'));
+         //return view('index', compact('users'));
+         return redirect('/');
         //return 'STORE';
 
     }
