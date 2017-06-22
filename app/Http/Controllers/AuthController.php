@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
 use DB;
 
 class AuthController extends Controller
@@ -17,14 +19,41 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        $inputs = request()->except(['_token']);
-        DB::table('users')
-            ->insert($inputs);
+        // $inputs = request()->except(['_token']);
+        // $inputs->user()->fill([
+        //     'username' => $username,
+        //     'password' => $password,
+        //     'name' => $name,
+        //     'status' => $status
+        // ]);
+
+        //  DB::table('users')
+        //      ->insert($inputs);
+        // return view('index');
+                $username = request('username');
+                $password = bcrypt(request('password'));
+                $name = request('name');
+                $status = request('status');
+         DB::table('users')->insert([
+             'username' => $username,
+             'password' => $password,
+             'name' => $name,
+             'status' => $status
+         ]);
         return view('index');
+        //return $password;
+
     }
 
     public function postLogin(){
         $inputs = request()->except(['_token']);
+        //$inputs = request()->only(['create','edit']);
+        // $inputs->users()->fill([
+        //     'username' => $username,
+        //     'password' => Hash::make($password),
+        //     'name' => $name,
+        //     'status' => $status
+        // ])->save();
         
 
         if(auth()->attempt($inputs)) {
