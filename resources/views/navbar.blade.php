@@ -5,8 +5,10 @@
     <a href="/about">About</a> /
     <a href="/contact">Contact</a> /  --}}
     @if(auth()->check())
-        <a href="/logout">Logout</a>
-        ( {{ auth()->user()->name }} )
+        <a href="/profile">Profile</a> /
+        <a href="/deposit">Deposit</a> /
+        <a href="/withdraw">Withdraw</a>
+       ( {{ auth()->user()->name }} )
     @else
         <a href="/login">Login</a> /
         <a href="/register">Register</a>

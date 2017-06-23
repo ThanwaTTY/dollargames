@@ -18,9 +18,12 @@
 
 Route::resource('/', 'DollargameController');
 
+Route::resource('/deposit', 'DepositController');
+
 
 Route::get('login', 'AuthController@getLogin')->name('login');
 Route::get('register', 'AuthController@register');
 Route::post('register', 'AuthController@store');
 Route::post('login', 'AuthController@postLogin');
 Route::get('/logout', 'AuthController@logout');
+Route::get('/profile', 'AuthController@show');

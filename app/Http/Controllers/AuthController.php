@@ -51,6 +51,7 @@ class AuthController extends Controller
 
     public function postLogin(){
         $inputs = request()->except(['_token']);
+
         //$inputs = request()->only(['create','edit']);
         // $inputs->users()->fill([
         //     'username' => $username,
@@ -74,4 +75,12 @@ class AuthController extends Controller
         return redirect('/');
     }
 
+    public function show()
+    {
+        $id = auth()->user()->id;
+        $users = DB::table('users')
+        ->where('id', $id)
+        ->first();
+        return view('profile', compact('users'));
+    }
 }
