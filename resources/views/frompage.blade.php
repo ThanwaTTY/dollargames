@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Laravel 5.4</title>
     <link rel="stylesheet" href="/css/app.css">
+    
+    <link href="{{ asset('jquery/jquery-ui.css') }}" rel="stylesheet">
+    <link href="{{ asset('jquery/jquery-ui-timepicker-addon.css') }}" rel="stylesheet">
+
+
+    <script src="{{ asset('jquery/jquery-1.10.2.min.js') }}"></script>
+    <script src="{{ asset('jquery/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('jquery/jquery-ui-timepicker-addon.js') }}"></script>
+    <script src="{{ asset('jquery/jquery-ui-sliderAccess.js') }}"></script>
 </head>
 <body>
     <div class="container">
